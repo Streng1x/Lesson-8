@@ -16,7 +16,12 @@ const fetchStart = async () => {
 
     data.map((el) => {
         const li = document.createElement("li");
-        li.textContent = el.title;
+        li.innerHTML = `
+        <h1>userId: ${el.userId}</h1>
+        <h2>id: ${el.id}</h2>
+        <h3>title: ${el.title}</h3>
+        <h4>body: ${el.body}</h4>
+        `
         const button = document.createElement("button");
         button.textContent = "Удалить";
         li.appendChild(button);
@@ -87,7 +92,8 @@ const fetchChange = async () => {
         body: JSON.stringify({
             userId: 9,
             title: "BitchAHHAHHAHHAHAHAH",
-            body: "I smarter",
+            body: "I smarter than you"
+            
         })
     })
     const data = await res.json();
